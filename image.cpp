@@ -166,3 +166,6 @@ void Image::drawLine(int x1, int y1, int x2, int y2, Color c)
     }
 }
 
+int Image::getNumberOfPixels() const {
+    return mWidth * mHeight;
+}
