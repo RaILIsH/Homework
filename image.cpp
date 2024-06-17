@@ -169,3 +169,17 @@ void Image::drawLine(int x1, int y1, int x2, int y2, Color c)
 int Image::getNumberOfPixels() const {
     return mWidth * mHeight;
 }
+
+void Image::convertToGrayscale() {
+    for (int i = 0; i < mWidth; i++) {
+        for (int j = 0; j < mHeight; j++) {
+            Color c = getPixel(i, j);
+            int color = (c.r + c.g + c.b) / 3;
+            Color set;
+            set.r = color;
+            set.g = color;
+            set.b = color;
+            setPixel(i, j, set);
+        }
+    }
+}

@@ -94,5 +94,7 @@ public:
     void drawCircle(int radius, int centerX, int centerY, Color c);
     void drawLine(int x1, int y1, int x2, int y2, Color c);
 
+    void convertToGrayscale();
+
     int getNumberOfPixels() const;
 };
