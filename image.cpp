@@ -5,6 +5,8 @@
 #include <cmath>
 #include <cassert>
 #include "image.h"
+#include "stb_image.h"
+#include "stb_image_write.h"
 
 
 Image::Color& Image::Color::operator+=(Color c) 
@@ -114,6 +116,13 @@ void Image::savePpm(const std::string& filename) const
     out.write(reinterpret_cast<const char*>(&mData[0]), mData.size());
 }
 
+void Image::loadJpg(char const *filename, int *x, int *y, int *channels_in_file, int desired_channels){
+    stbi_load(filename, x, y, channels_in_file, desired_channels);
+}
+
+void Image::saveJpg(char const *filename, int w, int h, int comp, const void *data, int quality){
+    stbi_write_jpg(filename, w, h, comp, data, quality);
+}
 
 void Image::drawCircle(int radius, int centerX, int centerY, Color c)
 {

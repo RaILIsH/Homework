@@ -53,7 +53,8 @@
 #include <algorithm>
 #include <cmath>
 #include <cassert>
-
+#include "stb_image.h"
+#include "stb_image_write.h"
 
 class Image
 {
@@ -90,6 +91,9 @@ public:
 
     void loadPpm(const std::string& filename);
     void savePpm(const std::string& filename) const;
+
+    void loadJpg(char const *filename, int *x, int *y, int *channels_in_file, int desired_channels);
+    void saveJpg(char const *filename, int w, int h, int comp, const void *data, int quality);
 
     void drawCircle(int radius, int centerX, int centerY, Color c);
     void drawLine(int x1, int y1, int x2, int y2, Color c);
