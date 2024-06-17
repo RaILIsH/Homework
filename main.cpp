@@ -13,6 +13,6 @@ int main()
     im.drawLine(100, 100, 200, 300, {255, 255, 0});
     im.drawLine(100, 100, 280, 300, {255, 255, 0});
     im.drawLine(100, 100, 360, 300, {255, 255, 0});
-
+    im.convertToGrayscale();
     im.savePpm("result.ppm");
 }
